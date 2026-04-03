@@ -57,10 +57,10 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a href="#" className="hidden md:block text-white/70 hover:text-white text-sm font-bold transition-colors">Log In</a>
-          <button className="bg-primary hover:bg-primary-container text-white px-5 py-2 rounded-full font-bold transition-all duration-200 hover:scale-105 active:scale-95 text-sm">
+          <Link href="/login" className="hidden md:block text-white/70 hover:text-white text-sm font-bold transition-colors">Log In</Link>
+          <Link href="/register" className="bg-primary hover:bg-primary-container text-white px-5 py-2 rounded-full font-bold transition-all duration-200 hover:scale-105 active:scale-95 text-sm">
             Get Started
-          </button>
+          </Link>
           <button className="md:hidden text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={menuOpen}>
             <span className="material-symbols-outlined">{menuOpen ? "close" : "menu"}</span>
           </button>
