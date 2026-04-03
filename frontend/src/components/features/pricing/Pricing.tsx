@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const plans = [
   {
     name: "Starter",
@@ -6,6 +8,7 @@ const plans = [
     description: "Perfect for personal projects and small sites.",
     features: ["10 GB SSD Storage", "Free SSL Certificate", "1 Website", "Daily Backups", "24/7 Support"],
     cta: "Start Free Trial",
+    href: "/checkout/starter",
     highlight: false,
   },
   {
@@ -15,6 +18,7 @@ const plans = [
     description: "For growing businesses that need more power.",
     features: ["30 GB SSD Storage", "Free SSL + CDN", "Unlimited Websites", "On-demand Backups", "Priority Support", "Staging Environment"],
     cta: "Get Started",
+    href: "/checkout/growth",
     highlight: true,
     badge: "Most Popular",
   },
@@ -25,6 +29,7 @@ const plans = [
     description: "Enterprise-grade for high-traffic applications.",
     features: ["100 GB NVMe Storage", "Free SSL + CDN + WAF", "Unlimited Websites", "Real-time Backups", "Dedicated Support", "Custom Server Config"],
     cta: "Contact Sales",
+    href: "/contact-sales",
     highlight: false,
   },
 ];
@@ -58,7 +63,7 @@ export default function Pricing() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-center">
-          {plans.map(({ name, price, period, description, features, cta, highlight, badge }) => (
+          {plans.map(({ name, price, period, description, features, cta, href, highlight, badge }) => (
             <div
               key={name}
               className={`relative rounded-2xl p-5 sm:p-8 border transition-all duration-300 cursor-pointer
@@ -96,13 +101,13 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <button className={`w-full py-3 rounded-xl font-black text-sm transition-all duration-200 hover:scale-105 active:scale-95 tracking-wide
+              <Link href={href} className={`block w-full py-3 rounded-xl font-black text-sm text-center transition-all duration-200 hover:scale-105 active:scale-95 tracking-wide
                 ${highlight
                   ? "bg-primary border-primary text-white hover:bg-primary-container"
                   : "border border-neutral-200 text-neutral-900 hover:border-neutral-400 hover:shadow-md"
                 }`}>
                 {cta}
-              </button>
+              </Link>
             </div>
           ))}
         </div>
