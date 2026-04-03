@@ -36,7 +36,7 @@ export default function Stats() {
           ))}
         </div>
 
-        <div className="border-t border-neutral-100 pt-12">
+        <div className="border-t border-neutral-100 pt-12 mt-8">
           <p className="text-center text-xs text-neutral-400 mb-8">Join 4,000+ companies already growing</p>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
             {trustedBy.map(({ name, svg }) => (
