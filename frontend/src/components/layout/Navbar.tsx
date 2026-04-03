@@ -5,11 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "Cloud Hosting", active: true },
-  { label: "Dedicated Servers" },
-  { label: "Domain Names" },
-  { label: "Agency Solutions" },
-  { label: "Client Area" },
+  { label: "Cloud Hosting",     href: "/cloud-hosting",      active: true },
+  { label: "Dedicated Servers", href: "/dedicated-servers" },
+  { label: "Domain Names",      href: "/domain-names" },
+  { label: "Agency Solutions",  href: "/agency-solutions" },
+  { label: "Client Area",       href: "/client-area" },
 ];
 
 export default function Navbar() {
@@ -48,11 +48,11 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center space-x-8 text-sm font-bold tracking-tight">
-          {navLinks.map(({ label, active }) => (
-            <a key={label} href="#"
+          {navLinks.map(({ label, href, active }) => (
+            <Link key={label} href={href ?? "/"}
               className={`transition-colors duration-200 ${active ? "text-white border-b-2 border-primary pb-1" : "text-white/70 hover:text-white"}`}>
               {label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -69,11 +69,11 @@ export default function Navbar() {
 
       {menuOpen && (
         <div className="md:hidden bg-neutral-900 px-6 pb-6 flex flex-col gap-1 border-t border-white/10">
-          {navLinks.map(({ label, active }) => (
-            <a key={label} href="#"
+          {navLinks.map(({ label, href, active }) => (
+            <Link key={label} href={href ?? "/"}
               className={`text-sm font-bold py-3 border-b border-white/5 transition-colors ${active ? "text-primary" : "text-white/70 hover:text-white"}`}>
               {label}
-            </a>
+            </Link>
           ))}
           <button className="mt-4 bg-primary text-white px-5 py-3 rounded-full font-bold text-sm w-full">Get Started</button>
         </div>
