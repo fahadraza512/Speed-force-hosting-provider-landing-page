@@ -40,9 +40,10 @@ export default function Navbar() {
           <Image
             src="https://speedforce.agency/wp-content/themes/wordpress_dev/build/images/logo.png"
             alt="Speed Force"
-            width={140}
-            height={36}
+            width={200}
+            height={52}
             priority
+            style={{ height: "48px", width: "auto" }}
           />
         </Link>
 
