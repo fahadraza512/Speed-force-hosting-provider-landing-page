@@ -26,10 +26,7 @@ export default function AgencySolutionsPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-neutral-50 border-b border-neutral-100">
         <div className="relative max-w-4xl mx-auto px-6 pt-20 pb-20 text-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-bold tracking-widest uppercase mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Agency Solutions
-          </span>
+
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-5 text-neutral-900">
             Built for Agencies.<br /><span className="text-primary italic">Loved by Clients.</span>
           </h1>
@@ -57,7 +54,7 @@ export default function AgencySolutionsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {features.map(({ icon, title, desc }) => (
             <div key={title} className="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4">
                 <span className="material-symbols-outlined text-primary text-xl">{icon}</span>
               </div>
               <h3 className="text-neutral-900 font-black text-sm mb-1.5">{title}</h3>
@@ -75,7 +72,7 @@ export default function AgencySolutionsPage() {
               <div key={name} className="bg-white border border-neutral-200 rounded-2xl p-7 shadow-sm">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="material-symbols-outlined text-primary text-base">star</span>
+                    <span key={i} className="material-symbols-outlined text-primary text-base" style={{fontVariationSettings:"'FILL' 1"}}>star</span>
                   ))}
                 </div>
                 <p className="text-neutral-700 text-sm leading-relaxed mb-5">&ldquo;{quote}&rdquo;</p>

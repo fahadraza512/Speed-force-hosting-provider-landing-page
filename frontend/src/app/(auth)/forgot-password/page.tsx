@@ -37,7 +37,7 @@ export default function ForgotPasswordPage() {
           <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10">
-            <div className="w-12 h-12 rounded-xl bg-primary/15 border border-primary/20 flex items-center justify-center mb-6">
+            <div className="w-12 h-12 flex items-center justify-center mb-6">
               <span className="material-symbols-outlined text-primary text-2xl">lock_reset</span>
             </div>
             <h2 className="text-white text-xl font-black tracking-tight mb-3">Account recovery</h2>
@@ -57,7 +57,7 @@ export default function ForgotPasswordPage() {
           <div className="w-full max-w-[400px]">
             {sent ? (
               <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <span className="material-symbols-outlined text-emerald-600 text-3xl">mark_email_read</span>
                 </div>
                 <h1 className="text-2xl font-black text-neutral-900 tracking-tight mb-2">Check your inbox</h1>

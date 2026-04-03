@@ -21,10 +21,7 @@ export default function CloudHostingPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-neutral-50 border-b border-neutral-100">
         <div className="relative max-w-4xl mx-auto px-6 pt-20 pb-20 text-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-bold tracking-widest uppercase mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            Cloud Hosting
-          </span>
+
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-5 text-neutral-900">
             Blazing Fast.<br /><span className="text-primary italic">Always On.</span>
           </h1>
@@ -69,7 +66,7 @@ export default function CloudHostingPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {features.map(({ icon, title, desc }) => (
             <div key={title} className="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4">
                 <span className="material-symbols-outlined text-primary text-xl">{icon}</span>
               </div>
               <h3 className="text-neutral-900 font-black text-sm mb-1.5">{title}</h3>

@@ -101,10 +101,7 @@ export default function GetStartedPage() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-neutral-50 border-b border-neutral-100">
         <div className="relative max-w-5xl mx-auto px-6 pt-24 pb-20 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-bold tracking-widest uppercase mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            Enterprise Cloud Hosting
-          </div>
+
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-6 text-neutral-900">
             Accelerate Your<br />
@@ -171,7 +168,7 @@ export default function GetStartedPage() {
           {steps.map(({ step, icon, title, desc }) => (
             <div key={step} className="relative bg-white border border-neutral-200 rounded-2xl p-7 hover:border-primary/30 hover:shadow-md transition-all hover:-translate-y-1 duration-300">
               <div className="flex items-start justify-between mb-5">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center">
                   <span className="material-symbols-outlined text-primary text-xl">{icon}</span>
                 </div>
                 <span className="text-3xl font-black text-neutral-100">{step}</span>
@@ -184,7 +181,7 @@ export default function GetStartedPage() {
       </section>
 
       {/* ── Pricing ── */}
-      <section className="bg-neutral-50 border-y border-neutral-100">
+      <section className="border-y border-neutral-100">
         <div className="max-w-5xl mx-auto px-6 py-24">
           <div className="text-center mb-14">
             <p className="text-[10px] font-black tracking-[0.25em] text-primary uppercase mb-3">Pricing</p>
@@ -199,7 +196,7 @@ export default function GetStartedPage() {
                   ? "bg-neutral-900 border-neutral-800 shadow-2xl shadow-black/20"
                   : "bg-white border-neutral-200 hover:border-neutral-300 hover:shadow-md"}`}>
                 {badge && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-[9px] font-black px-4 py-1 rounded-full tracking-widest shadow-lg shadow-primary/30">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-primary text-[9px] font-black px-4 py-1 rounded-full tracking-widest border border-primary/40 bg-white">
                     {badge}
                   </span>
                 )}
@@ -260,7 +257,7 @@ export default function GetStartedPage() {
             <div key={name} className="bg-neutral-50 border border-neutral-200 rounded-2xl p-7 hover:border-primary/20 hover:shadow-md transition-all">
               <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="material-symbols-outlined text-primary text-base">star</span>
+                  <span key={i} className="material-symbols-outlined text-primary text-base" style={{fontVariationSettings:"'FILL' 1"}}>star</span>
                 ))}
               </div>
               <p className="text-neutral-700 text-sm leading-relaxed mb-6">&ldquo;{quote}&rdquo;</p>

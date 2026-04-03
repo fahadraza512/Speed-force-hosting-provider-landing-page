@@ -50,7 +50,7 @@ export default function ContactSalesPage() {
               { icon: "handshake",     title: "Volume discounts",           desc: "Special pricing for multi-server deployments." },
             ].map(({ icon, title, desc }) => (
               <div key={title} className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-primary/15 border border-primary/20 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-primary text-base">{icon}</span>
                 </div>
                 <div>

@@ -45,7 +45,7 @@ export default function CustomCursor() {
   return (
     <div
       ref={ringRef}
-      className="cursor-ring fixed top-0 left-0 z-9998 pointer-events-none"
+      className="cursor-ring fixed top-0 left-0 z-9998 pointer-events-none hidden md:block"
       style={{ willChange: "transform", mixBlendMode: "difference" }}
     >
       <div className="w-6 h-6 rounded-full border-2 border-white -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">

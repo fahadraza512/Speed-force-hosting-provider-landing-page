@@ -14,7 +14,7 @@ export default function Hero() {
       <HeroCanvas />
 
       {/* Layout: text left, pills right */}
-      <div className="relative z-10 w-full px-6 sm:px-10 lg:pl-16 lg:pr-6 flex items-center justify-between gap-8 pt-16">
+      <div className="relative z-10 w-full px-6 sm:px-10 lg:px-24 flex items-center justify-between gap-8 pt-16">
 
         {/* Left — text content */}
         <div className="text-left w-full lg:max-w-xl lg:shrink-0">
@@ -39,7 +39,7 @@ export default function Hero() {
         </div>
 
         {/* Right — scrolling pills */}
-        <div className="hidden lg:flex flex-1 items-center justify-end pr-32 hero-zoom-in delay-300">
+        <div className="hidden lg:flex flex-1 items-center justify-end hero-zoom-in delay-300">
           <FeaturePills />
         </div>
 
