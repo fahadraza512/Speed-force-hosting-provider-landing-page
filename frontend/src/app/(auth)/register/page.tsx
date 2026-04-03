@@ -41,7 +41,7 @@ export default function RegisterPage() {
             <Image
               src="https://speedforce.agency/wp-content/themes/wordpress_dev/build/images/logo.png"
               alt="Speed Force" width={160} height={40}
-              style={{ height: "40px", width: "auto" }}
+              style={{ height: "60px", width: "auto" }}
             />
           </Link>
         </div>
