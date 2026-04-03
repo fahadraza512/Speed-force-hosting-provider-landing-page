@@ -95,7 +95,7 @@ export default function Features() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 auto-rows-auto gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 auto-rows-auto gap-5">
 
           {/* WordPress Wide */}
           <div className={`sm:col-span-2 md:col-span-8 ${lc} min-h-[180px]`}>
