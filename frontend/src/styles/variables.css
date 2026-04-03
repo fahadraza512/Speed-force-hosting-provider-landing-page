@@ -1,0 +1,6 @@
+:root {
+  --color-primary: #0070f3;
+  --color-secondary: #ff4081;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
