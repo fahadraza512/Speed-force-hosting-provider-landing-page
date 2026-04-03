@@ -89,7 +89,7 @@ export default function Features() {
               Everything You Need <br />To Scale Fast.
             </h2>
           </div>
-          <p className="text-neutral-400 text-xs max-w-xs text-right leading-relaxed">
+          <p className="text-neutral-400 text-xs max-w-xs text-left leading-relaxed">
             One platform. Every tool you need to launch, grow, and scale your online presence.
           </p>
         </div>
