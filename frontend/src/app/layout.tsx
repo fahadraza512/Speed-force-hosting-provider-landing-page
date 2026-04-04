@@ -3,6 +3,7 @@ import { Space_Grotesk, Manrope } from "next/font/google";
 import "@/styles/globals.css";
 import MaterialSymbols from "@/components/ui/MaterialSymbols";
 import CustomCursor from "@/components/ui/CustomCursor";
+import { AuthProvider } from "@/components/features/auth";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <CustomCursor />
         <MaterialSymbols />
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

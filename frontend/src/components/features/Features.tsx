@@ -89,20 +89,20 @@ export default function Features() {
               Everything You Need <br />To Scale Fast.
             </h2>
           </div>
-          <p className="text-neutral-400 text-xs max-w-xs md:text-right leading-relaxed">
+          <p className="text-neutral-400 text-xs max-w-xs text-left leading-relaxed">
             One platform. Every tool you need to launch, grow, and scale your online presence.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 auto-rows-auto gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 auto-rows-auto gap-5">
 
           {/* WordPress Wide */}
           <div className={`sm:col-span-2 md:col-span-8 ${lc} min-h-[180px]`}>
             <div className="md:w-1/2 relative z-10">
               <div className="flex items-center gap-2 mb-3">
                 <Icon name="php" />
-                <span className="text-[9px] font-black px-2 py-0.5 rounded-full bg-primary/8 border border-primary/15 text-primary group-hover:text-white group-hover:bg-primary group-hover:border-primary tracking-wide transition-all">Most Popular</span>
+                <span className="text-[9px] font-black px-2 py-0.5 rounded-full border border-primary/40 text-primary tracking-wide">Most Popular</span>
               </div>
               <h3 className="text-base font-black text-neutral-900 group-hover:text-white mb-1">Hosting for WordPress</h3>
               <p className="text-neutral-400 text-xs leading-relaxed mb-3 group-hover:text-neutral-300">Optimized for speed and security. One-click installs, managed updates, and expert support.</p>
@@ -168,7 +168,7 @@ export default function Features() {
               </div>
               <div className="flex-1 relative min-h-[140px]">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="bg-[#0d1117] rounded-xl w-full p-4 font-mono text-[10px] border border-white/8 shadow-2xl group-hover:-translate-y-1 transition-transform duration-500">
+                  <div className="bg-[#0d1117] rounded-xl w-full p-4 font-mono text-xs border border-white/8 shadow-2xl group-hover:-translate-y-1 transition-transform duration-500">
                     {/* Title bar */}
                     <div className="flex items-center gap-2 mb-3 pb-2.5 border-b border-white/8">
                       <div className="flex gap-1.5">
@@ -176,56 +176,56 @@ export default function Features() {
                         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                         <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                       </div>
-                      <div className="flex-1 mx-2 bg-white/5 rounded px-2 py-0.5 text-[8px] text-white/30 text-center">
+                      <div className="flex-1 mx-2 bg-white/5 rounded px-2 py-0.5 text-[10px] text-white/40 text-center tracking-wide">
                         ~/speedforce/autoscale.js
                       </div>
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span className="text-emerald-400/70 text-[8px] font-bold">LIVE</span>
+                        <span className="text-emerald-400 text-[10px] font-bold tracking-widest">LIVE</span>
                       </div>
                     </div>
                     {/* Code */}
-                    <div className="space-y-1 leading-relaxed">
+                    <div className="space-y-1.5 leading-relaxed">
                       <div className="flex gap-3">
-                        <span className="text-white/20 w-3 shrink-0">1</span>
+                        <span className="text-white/20 w-4 shrink-0 select-none">1</span>
                         <span><span className="text-violet-400">const </span><span className="text-sky-300">autoScale</span><span className="text-white/50"> = </span><span className="text-violet-400">async</span><span className="text-white/50"> (load) {"=>"} {"{"}</span></span>
                       </div>
                       <div className="flex gap-3">
-                        <span className="text-white/20 w-3 shrink-0">2</span>
-                        <span className="pl-4 text-neutral-600 italic">{"// AI-powered threshold detection"}</span>
+                        <span className="text-white/20 w-4 shrink-0 select-none">2</span>
+                        <span className="pl-4 text-neutral-500 italic">{"// AI-powered threshold detection"}</span>
                       </div>
                       <div className="flex gap-3">
-                        <span className="text-white/20 w-3 shrink-0">3</span>
+                        <span className="text-white/20 w-4 shrink-0 select-none">3</span>
                         <span className="pl-4"><span className="text-amber-300">if </span><span className="text-white/50">(load </span><span className="text-pink-400">{">"} </span><span className="text-sky-300">threshold</span><span className="text-white/50">) {"{"}</span></span>
                       </div>
                       <div className="flex gap-3">
-                        <span className="text-white/20 w-3 shrink-0">4</span>
+                        <span className="text-white/20 w-4 shrink-0 select-none">4</span>
                         <span className="pl-8"><span className="text-violet-400">await </span><span className="text-white/70">provision(</span><span className="text-emerald-400">node_k8s</span><span className="text-white/70">);</span></span>
                       </div>
                       <div className="flex gap-3">
-                        <span className="text-white/20 w-3 shrink-0">5</span>
+                        <span className="text-white/20 w-4 shrink-0 select-none">5</span>
                         <span className="pl-8"><span className="text-sky-300">notify</span><span className="text-white/50">(</span><span className="text-orange-300">&quot;Scaled ✓&quot;</span><span className="text-white/50">);</span></span>
                       </div>
                       <div className="flex gap-3">
-                        <span className="text-white/20 w-3 shrink-0">6</span>
+                        <span className="text-white/20 w-4 shrink-0 select-none">6</span>
                         <span className="pl-4 text-white/40">{"}"}</span>
                       </div>
                       <div className="flex gap-3">
-                        <span className="text-white/20 w-3 shrink-0">7</span>
+                        <span className="text-white/20 w-4 shrink-0 select-none">7</span>
                         <span className="text-white/40">{"}"}</span>
                       </div>
                     </div>
                     {/* Output bar */}
                     <div className="mt-3 pt-2.5 border-t border-white/8 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span className="text-emerald-400 text-[8px] font-bold">Node provisioned</span>
-                        <span className="text-white/30 text-[8px]">·</span>
-                        <span className="text-white/40 text-[8px]">340ms</span>
-                        <span className="text-white/30 text-[8px]">·</span>
-                        <span className="text-white/40 text-[8px]">k8s-node-07</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                        <span className="text-emerald-400 text-[10px] font-bold">Node provisioned</span>
+                        <span className="text-white/20 text-[10px]">·</span>
+                        <span className="text-white/40 text-[10px]">340ms</span>
+                        <span className="text-white/20 text-[10px]">·</span>
+                        <span className="text-white/40 text-[10px]">k8s-node-07</span>
                       </div>
-                      <span className="text-[8px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">✓ OK</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">✓ OK</span>
                     </div>
                   </div>
                 </div>

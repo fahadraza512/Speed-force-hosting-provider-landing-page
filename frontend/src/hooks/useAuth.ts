@@ -1,3 +1,5 @@
+import { useAuthContext } from "@/store/authStore";
+
 export function useAuth() {
-  return {};
+  return useAuthContext();
 }

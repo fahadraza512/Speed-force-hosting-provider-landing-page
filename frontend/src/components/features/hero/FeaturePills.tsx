@@ -78,22 +78,25 @@ export default function FeaturePills() {
             }}
           >
             {/* Card */}
-            <div className="absolute inset-0 flex items-center gap-3 px-4 rounded-xl bg-white/10 border border-white/10 overflow-hidden">
-              <span className={`material-symbols-outlined text-white shrink-0 ${isActive ? "text-base" : "text-sm"}`}>
+            <div className="absolute inset-0 flex items-center justify-center gap-3 px-4 rounded-xl bg-white/10 border border-white/10 overflow-hidden">
+              <span
+                className="material-symbols-outlined text-white shrink-0"
+                style={{ fontSize: isActive ? "24px" : "18px", transition: "font-size 0.9s cubic-bezier(0.4,0,0.2,1)" }}
+              >
                 {item.icon}
               </span>
-              <span className={`text-white font-semibold tracking-tight truncate ${isActive ? "text-sm" : "text-xs"}`}>
+              <span
+                className="text-white font-semibold tracking-tight truncate"
+                style={{ fontSize: isActive ? "20px" : "16px", transition: "font-size 0.9s cubic-bezier(0.4,0,0.2,1)" }}
+              >
                 {item.label}
               </span>
             </div>
 
-            {/* Tick — fixed to top-right corner of card wrapper */}
+            {/* Tick */}
             <div
               className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/50 z-20"
-              style={{
-                opacity:    isActive ? 1 : 0,
-                transition: "opacity 1s ease",
-              }}
+              style={{ opacity: isActive ? 1 : 0, transition: "opacity 1s ease" }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 -960 960 960" fill="white">
                 <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>

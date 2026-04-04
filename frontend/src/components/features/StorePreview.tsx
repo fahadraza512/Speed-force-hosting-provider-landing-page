@@ -10,6 +10,13 @@ export default function StorePreview() {
   const playPromiseRef = useRef<Promise<void> | null>(null);
 
   useEffect(() => {
+    // Auto-play on mount (muted autoplay is allowed)
+    const v = videoRef.current;
+    if (v) {
+      playPromiseRef.current = v.play().catch(() => {});
+    }
+
+    // Also re-play on card hover
     let card: HTMLElement | null = containerRef.current;
     while (card && !card.classList.contains("group")) {
       card = card.parentElement;
@@ -17,10 +24,9 @@ export default function StorePreview() {
     if (!card) return;
 
     const play = () => {
-      const v = videoRef.current;
-      if (!v) return;
-      v.currentTime = 0;
-      playPromiseRef.current = v.play().catch(() => {});
+      if (!videoRef.current) return;
+      videoRef.current.currentTime = 0;
+      playPromiseRef.current = videoRef.current.play().catch(() => {});
     };
 
     const stop = () => {
@@ -45,11 +51,15 @@ export default function StorePreview() {
   }, []);
 
   return (
-    <div ref={containerRef} className="mt-4 relative h-40 md:absolute md:inset-x-5 md:bottom-5 md:top-[160px] md:h-auto rounded-xl overflow-hidden">
+    <div
+      ref={containerRef}
+      className="mt-4 relative h-40 md:absolute md:inset-x-5 md:bottom-5 md:top-[160px] md:h-auto rounded-xl overflow-hidden"
+    >
       <video
         ref={videoRef}
         muted
         playsInline
+        loop
         preload="auto"
         className="w-full h-full object-cover"
       >
