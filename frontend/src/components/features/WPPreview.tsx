@@ -11,6 +11,12 @@ export default function WPPreview() {
   const playPromiseRef = useRef<Promise<void> | null>(null);
 
   useEffect(() => {
+    // Auto-play on mount
+    const v = videoRef.current;
+    if (v) {
+      playPromiseRef.current = v.play().catch(() => {});
+    }
+
     // Find the nearest card ancestor by traversing up
     let card: HTMLElement | null = containerRef.current;
     while (card && !card.classList.contains("group")) {
@@ -51,13 +57,14 @@ export default function WPPreview() {
       ref={containerRef}
       className="absolute top-4 bottom-4 right-4 w-1/2 hidden md:block"
     >
-      <div className="w-full h-full bg-surface shadow-2xl rounded-lg transform translate-x-4 group-hover:translate-x-0 transition-transform duration-500 overflow-hidden border border-outline-variant/20 p-2">
+      <div className="w-full h-full bg-white shadow-2xl rounded-lg transform translate-x-4 group-hover:translate-x-0 transition-transform duration-500 overflow-hidden border border-neutral-200 p-2">
         <video
           ref={videoRef}
           muted
           playsInline
           preload="auto"
           className="w-full h-full object-cover rounded-lg opacity-90"
+          loop
         >
           <source src={VIDEO_SRC} type="video/mp4" />
         </video>

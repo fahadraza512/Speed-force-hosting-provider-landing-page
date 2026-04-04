@@ -4,7 +4,19 @@ import { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 import { validateLogin } from "@/lib/validations";
+import { authService } from "@/services/authService";
 import PageNavbar from "@/components/layout/PageNavbar";
+
+function GoogleIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+      <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+      <path d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z" fill="#FBBC05"/>
+      <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+    </svg>
+  );
+}
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -13,6 +25,7 @@ export default function LoginPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -31,6 +44,16 @@ export default function LoginPage() {
     }
   }
 
+  async function handleGoogle() {
+    setGoogleLoading(true);
+    try {
+      await authService.signInWithGoogle();
+    } catch (err) {
+      setServerError(err instanceof Error ? err.message : "Google sign-in failed.");
+      setGoogleLoading(false);
+    }
+  }
+
   const inp = (field: string) =>
     `w-full bg-white border rounded-lg px-3.5 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 outline-none transition-all focus:ring-2 focus:ring-primary/20 focus:border-primary ${errors[field] ? "border-red-400 focus:ring-red-400/20" : "border-neutral-300 hover:border-neutral-400"}`;
 
@@ -43,7 +66,6 @@ export default function LoginPage() {
         <div className="hidden lg:flex lg:w-[440px] xl:w-[480px] shrink-0 flex-col justify-between bg-neutral-900 p-12 relative overflow-hidden">
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-
           <div className="relative z-10">
             <p className="text-[10px] font-black tracking-[0.25em] text-primary uppercase mb-8">Trusted by 2M+ sites</p>
             <blockquote className="text-white/90 text-lg font-medium leading-relaxed mb-6">
@@ -57,7 +79,6 @@ export default function LoginPage() {
               </div>
             </div>
           </div>
-
           <div className="flex items-center gap-2 text-xs text-neutral-600">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
             All systems operational
@@ -83,6 +104,22 @@ export default function LoginPage() {
                 {serverError}
               </div>
             )}
+
+            {/* Google button */}
+            <button onClick={handleGoogle} disabled={googleLoading}
+              className="w-full flex items-center justify-center gap-3 border border-neutral-300 hover:border-neutral-400 hover:bg-neutral-50 rounded-lg px-4 py-2.5 text-sm font-semibold text-neutral-700 transition-all mb-4 disabled:opacity-50">
+              {googleLoading
+                ? <span className="w-4 h-4 border-2 border-neutral-300 border-t-neutral-600 rounded-full animate-spin" />
+                : <GoogleIcon />}
+              Continue with Google
+            </button>
+
+            {/* Divider */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex-1 h-px bg-neutral-200" />
+              <span className="text-xs text-neutral-400 font-medium">or</span>
+              <div className="flex-1 h-px bg-neutral-200" />
+            </div>
 
             <form onSubmit={handleSubmit} noValidate className="space-y-4">
               <div>

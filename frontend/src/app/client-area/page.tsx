@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
 import PageNavbar from "@/components/layout/PageNavbar";
-
-export const metadata: Metadata = { title: "Client Area – Speed Force" };
+import Footer from "@/components/layout/Footer";
 
 const features = [
   { icon: "dns",           title: "Manage Services",    desc: "View and control all your hosting plans, domains, and add-ons." },
@@ -12,18 +15,25 @@ const features = [
 ];
 
 export default function ClientAreaPage() {
+  const { isAuthenticated, isLoading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoading && isAuthenticated) {
+      router.replace("/dashboard");
+    }
+  }, [isAuthenticated, isLoading, router]);
+
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <PageNavbar />
 
-      {/* Hero */}
       <section className="relative overflow-hidden bg-neutral-50 border-b border-neutral-100">
-        <div className="relative max-w-3xl mx-auto px-6 pt-20 pb-20 text-center">
-
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] mb-5 text-neutral-900">
+        <div className="relative max-w-3xl mx-auto px-6 pt-8 pb-8 text-center">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] mb-3 text-neutral-900">
             Welcome Back.
           </h1>
-          <p className="text-neutral-500 text-lg max-w-lg mx-auto leading-relaxed mb-10">
+          <p className="text-neutral-500 text-lg max-w-lg mx-auto leading-relaxed mb-6">
             Manage your services, billing, support tickets, and domains — all in one place.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -38,9 +48,8 @@ export default function ClientAreaPage() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="max-w-5xl mx-auto px-6 py-20">
-        <div className="text-center mb-14">
+      <section className="max-w-5xl mx-auto px-6 py-10">
+        <div className="text-center mb-8">
           <p className="text-[10px] font-black tracking-[0.25em] text-primary uppercase mb-3">Your Dashboard</p>
           <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-neutral-900">Everything in one place.</h2>
         </div>
@@ -59,8 +68,7 @@ export default function ClientAreaPage() {
         </div>
       </section>
 
-      {/* Security note */}
-      <section className="max-w-5xl mx-auto px-6 pb-16">
+      <section className="max-w-5xl mx-auto px-6 pb-10">
         <div className="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 flex items-start gap-4">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
             <span className="material-symbols-outlined text-emerald-600 text-xl">verified_user</span>
@@ -74,9 +82,7 @@ export default function ClientAreaPage() {
         </div>
       </section>
 
-      <footer className="border-t border-neutral-100 py-8 text-center text-xs text-neutral-400">
-        © {new Date().getFullYear()} Speed Force Hosting, Inc. All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,91 +1,79 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 
-const services = [
-  { icon: "cloud", label: "Cloud Hosting",     status: "Active",   color: "text-emerald-400" },
-  { icon: "dns",   label: "Dedicated Server",  status: "Active",   color: "text-emerald-400" },
-  { icon: "mail",  label: "Email Marketing",   status: "Inactive", color: "text-neutral-500" },
-  { icon: "language", label: "Domain Names",   status: "Active",   color: "text-emerald-400" },
+const stats = [
+  { label: "Active Services", value: "0", icon: "cloud" },
+  { label: "Domains",         value: "0", icon: "language" },
+  { label: "Open Tickets",    value: "0", icon: "support_agent" },
+  { label: "Last Invoice",    value: "—", icon: "receipt_long" },
+];
+
+const actions = [
+  { href: "/dashboard/services", icon: "cloud",         label: "My Services",   desc: "View and manage your hosting plans" },
+  { href: "/dashboard/support",  icon: "support_agent", label: "Open a Ticket", desc: "Get help from our expert team" },
+  { href: "/dashboard/billing",  icon: "receipt_long",  label: "Billing",       desc: "View invoices and manage billing" },
 ];
 
 export default function DashboardPage() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white">
-      {/* Top bar */}
-      <header className="border-b border-white/8 bg-neutral-900/80 backdrop-blur-sm sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/">
-            <Image
-              src="https://speedforce.agency/wp-content/themes/wordpress_dev/build/images/logo.png"
-              alt="Speed Force" width={140} height={36}
-              style={{ height: "36px", width: "auto" }}
-            />
-          </Link>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-neutral-400 hidden sm:block">
-              {user?.email}
-            </span>
-            <button onClick={logout}
-              className="flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors font-bold">
-              <span className="material-symbols-outlined text-base">logout</span>
-              Sign out
-            </button>
-          </div>
-        </div>
-      </header>
+    <div className="bg-white min-h-full">
+      <div className="border-b border-neutral-100 px-8 py-7">
+        <h1 className="text-2xl font-bold tracking-tight text-neutral-900">Overview</h1>
+        <p className="text-sm text-neutral-500 mt-1">Welcome back, {user?.name ?? "there"}.</p>
+      </div>
 
-      <main className="max-w-7xl mx-auto px-6 py-12">
-        {/* Welcome */}
-        <div className="mb-10">
-          <p className="text-[10px] font-black tracking-[0.25em] text-primary uppercase mb-2">Client Area</p>
-          <h1 className="text-3xl md:text-4xl font-black tracking-tighter">
-            Welcome back, {user?.name} 👋
-          </h1>
-          <p className="text-neutral-400 text-sm mt-2">Here&apos;s an overview of your services.</p>
-        </div>
+      <div className="px-8 py-10 max-w-3xl divide-y divide-neutral-100">
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          {[
-            { label: "Active Services", value: "3", icon: "check_circle" },
-            { label: "Domains",         value: "2", icon: "language" },
-            { label: "Open Tickets",    value: "0", icon: "support_agent" },
-            { label: "Next Invoice",    value: "$29", icon: "receipt" },
-          ].map(({ label, value, icon }) => (
-            <div key={label} className="bg-neutral-900 border border-white/8 rounded-2xl p-5">
-              <span className="material-symbols-outlined text-primary text-xl mb-3 block">{icon}</span>
-              <div className="text-2xl font-black tracking-tighter">{value}</div>
-              <div className="text-xs text-neutral-500 mt-1">{label}</div>
+        <section className="pb-10">
+          <h2 className="text-xs font-semibold text-neutral-400 uppercase tracking-widest mb-4">Current Plan</h2>
+          <div className="flex items-center justify-between border border-neutral-200 rounded-lg px-5 py-4">
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">Free Plan</p>
+              <p className="text-sm text-neutral-400 mt-0.5">
+                Member since {new Date(user?.createdAt ?? Date.now()).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+              </p>
             </div>
-          ))}
-        </div>
-
-        {/* Services */}
-        <div className="bg-neutral-900 border border-white/8 rounded-2xl overflow-hidden">
-          <div className="px-6 py-4 border-b border-white/8 flex items-center justify-between">
-            <h2 className="font-black tracking-tight">Your Services</h2>
-            <button className="text-xs text-primary font-bold hover:text-primary/80 transition-colors">
-              + Add Service
-            </button>
+            <Link href="/contact-sales" className="text-sm font-semibold text-primary hover:text-primary/80 transition">
+              Upgrade →
+            </Link>
           </div>
-          <div className="divide-y divide-white/5">
-            {services.map(({ icon, label, status, color }) => (
-              <div key={label} className="px-6 py-4 flex items-center justify-between hover:bg-white/2 transition-colors">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-neutral-400 text-lg">{icon}</span>
-                  <span className="text-sm font-bold">{label}</span>
-                </div>
-                <span className={`text-xs font-bold ${color}`}>{status}</span>
+        </section>
+
+        <section className="py-10">
+          <h2 className="text-xs font-semibold text-neutral-400 uppercase tracking-widest mb-4">Account Summary</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {stats.map(({ label, value, icon }) => (
+              <div key={label} className="border border-neutral-200 rounded-lg p-5">
+                <span className="material-symbols-outlined text-neutral-400 text-xl mb-3 block">{icon}</span>
+                <p className="text-2xl font-bold tracking-tight text-neutral-900">{value}</p>
+                <p className="text-xs text-neutral-400 mt-1 font-medium">{label}</p>
               </div>
             ))}
           </div>
-        </div>
-      </main>
+        </section>
+
+        <section className="pt-10">
+          <h2 className="text-xs font-semibold text-neutral-400 uppercase tracking-widest mb-4">Quick Actions</h2>
+          <div className="divide-y divide-neutral-100 border border-neutral-200 rounded-lg overflow-hidden">
+            {actions.map(({ href, icon, label, desc }) => (
+              <Link key={href} href={href}
+                className="flex items-center gap-4 px-5 py-4 hover:bg-neutral-50 transition group">
+                <span className="material-symbols-outlined text-neutral-400 group-hover:text-neutral-600 transition text-xl shrink-0">{icon}</span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-neutral-900">{label}</p>
+                  <p className="text-sm text-neutral-400 mt-0.5">{desc}</p>
+                </div>
+                <span className="text-neutral-300 group-hover:text-neutral-500 transition text-sm">→</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 }

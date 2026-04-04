@@ -67,8 +67,8 @@ export default function StarterCheckoutPage() {
 
         <div className="w-full max-w-[420px]">
           <div className="mb-8">
-            <h1 className="text-2xl font-black text-neutral-900 tracking-tight mb-1.5">Start your free trial</h1>
-            <p className="text-neutral-500 text-sm">30 days free — no credit card charged today.</p>
+            <h1 className="text-2xl font-black text-neutral-900 tracking-tight mb-1.5">Get started with Starter</h1>
+            <p className="text-neutral-500 text-sm">30-day money back guarantee. Cancel anytime.</p>
           </div>
 
           <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
@@ -109,7 +109,7 @@ export default function StarterCheckoutPage() {
             <button type="submit"
               className="w-full mt-2 bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
               <span className="material-symbols-outlined text-base">lock</span>
-              Start Free Trial — $3.99/mo after
+              Subscribe — $3.99/mo
             </button>
           </form>
 

@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
+import DashboardSidebar from "@/components/layout/DashboardSidebar";
+import DashboardNavbar from "@/components/layout/DashboardNavbar";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
@@ -16,13 +18,23 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
-        <span className="w-8 h-8 border-2 border-white/10 border-t-primary rounded-full animate-spin" />
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <span className="w-8 h-8 border-2 border-neutral-200 border-t-primary rounded-full animate-spin" />
       </div>
     );
   }
 
   if (!isAuthenticated) return null;
 
-  return <>{children}</>;
+  return (
+    <div className="min-h-screen bg-white flex flex-col">
+      <DashboardNavbar />
+      <div className="flex flex-1">
+        <DashboardSidebar />
+        <main className="flex-1 min-w-0 pb-20 lg:pb-0">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
 }

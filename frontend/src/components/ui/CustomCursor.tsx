@@ -46,10 +46,10 @@ export default function CustomCursor() {
     <div
       ref={ringRef}
       className="cursor-ring fixed top-0 left-0 z-9998 pointer-events-none hidden md:block"
-      style={{ willChange: "transform", mixBlendMode: "difference" }}
+      style={{ willChange: "transform" }}
     >
-      <div className="w-6 h-6 rounded-full border-2 border-white -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-        <div className="w-1.5 h-1.5 rounded-full bg-white" />
+      <div className="w-6 h-6 rounded-full border-2 border-primary -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
       </div>
     </div>
   );

@@ -57,7 +57,7 @@ export default function BuilderPreview() {
     <div ref={containerRef} className="mt-4 relative h-28 sm:h-32 flex items-center justify-center">
       <div className="absolute inset-0 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-opacity duration-300">
         {/* Card 1 — larger, rotated left */}
-        <div className="w-32 h-32 bg-white rounded-lg shadow-md border border-outline-variant/20 transform -rotate-12 translate-x-4 overflow-hidden">
+        <div className="w-32 h-32 bg-white rounded-lg shadow-md border border-neutral-200 transform -rotate-12 translate-x-4 overflow-hidden">
           <video ref={video1Ref} poster={COVER} muted playsInline preload="auto" className="w-full h-full object-cover">
             <source src={VIDEO_SRC} type="video/mp4" />
           </video>

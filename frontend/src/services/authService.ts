@@ -5,27 +5,51 @@ export interface AuthResponse {
   token: string;
 }
 
-// Mock auth — replace with real API calls when backend is ready
+export interface SignUpResponse {
+  success: true;
+  emailConfirmationRequired: true;
+  email: string;
+}
+
+const STORAGE_KEY = "sf_auth";
+
+function mockUser(name: string, email: string): User {
+  return { id: "mock-id", name, email, createdAt: new Date().toISOString() };
+}
+
 export const authService = {
   login: async (email: string, password: string): Promise<AuthResponse> => {
-    await new Promise((r) => setTimeout(r, 800)); // simulate network
-    if (password.length < 6) throw new Error("Invalid credentials");
-    return {
-      token: "mock-jwt-token-" + Date.now(),
-      user: { id: "1", name: email.split("@")[0], email, createdAt: new Date().toISOString() },
-    };
+    await new Promise(r => setTimeout(r, 600));
+    if (password.length < 6) throw new Error("Invalid email or password.");
+    const user = mockUser(email.split("@")[0], email);
+    return { token: "mock-token", user };
   },
 
-  register: async (name: string, email: string, _password: string): Promise<AuthResponse> => {
-    await new Promise((r) => setTimeout(r, 800));
-    return {
-      token: "mock-jwt-token-" + Date.now(),
-      user: { id: "2", name, email, createdAt: new Date().toISOString() },
-    };
+  register: async (_name: string, email: string, _password: string): Promise<SignUpResponse> => {
+    await new Promise(r => setTimeout(r, 600));
+    return { success: true, emailConfirmationRequired: true, email };
   },
 
-  forgotPassword: async (email: string): Promise<void> => {
-    await new Promise((r) => setTimeout(r, 800));
-    if (!email) throw new Error("Email not found");
+  signInWithGoogle: async (): Promise<void> => {
+    await new Promise(r => setTimeout(r, 400));
+    // Mock: store a fake user and redirect
+    const user = mockUser("Google User", "google@example.com");
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ user, token: "mock-google-token" }));
+    window.location.href = "/dashboard";
+  },
+
+  forgotPassword: async (_email: string): Promise<void> => {
+    await new Promise(r => setTimeout(r, 600));
+  },
+
+  logout: async (): Promise<void> => {
+    localStorage.removeItem(STORAGE_KEY);
+  },
+
+  getCurrentUser: async (): Promise<User | null> => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw).user : null;
+    } catch { return null; }
   },
 };

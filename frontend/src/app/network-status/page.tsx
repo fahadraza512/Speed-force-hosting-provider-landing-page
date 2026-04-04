@@ -73,29 +73,29 @@ const statusConfig = {
   operational: {
     label: "Operational",
     dot: "bg-emerald-500",
-    badge: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
-    banner: "bg-emerald-500/5 border-emerald-500/15",
+    badge: "bg-emerald-50 border-emerald-200 text-emerald-600",
+    banner: "bg-emerald-50 border-emerald-200",
     icon: "check_circle",
-    iconColor: "text-emerald-400",
-    iconBg: "bg-emerald-500/10",
+    iconColor: "text-emerald-600",
+    iconBg: "bg-emerald-50",
   },
   degraded: {
     label: "Degraded",
     dot: "bg-amber-400",
-    badge: "bg-amber-500/10 border-amber-500/20 text-amber-400",
-    banner: "bg-amber-500/5 border-amber-500/15",
+    badge: "bg-amber-50 border-amber-200 text-amber-600",
+    banner: "bg-amber-50 border-amber-200",
     icon: "warning",
-    iconColor: "text-amber-400",
-    iconBg: "bg-amber-500/10",
+    iconColor: "text-amber-600",
+    iconBg: "bg-amber-50",
   },
   outage: {
     label: "Outage",
     dot: "bg-red-500",
-    badge: "bg-red-500/10 border-red-500/20 text-red-400",
-    banner: "bg-red-500/5 border-red-500/15",
+    badge: "bg-red-50 border-red-200 text-red-600",
+    banner: "bg-red-50 border-red-200",
     icon: "error",
-    iconColor: "text-red-400",
-    iconBg: "bg-red-500/10",
+    iconColor: "text-red-600",
+    iconBg: "bg-red-50",
   },
 };
 
@@ -108,7 +108,7 @@ const cfg = statusConfig[overallStatus];
 
 export default function NetworkStatusPage() {
   return (
-    <div className="min-h-screen text-neutral-900">
+    <div className="min-h-screen bg-white text-neutral-900">
       <PageNavbar />
 
       <div className="max-w-5xl mx-auto px-6 py-14">
@@ -271,7 +271,7 @@ export default function NetworkStatusPage() {
               <div className="flex items-center gap-4">
                 <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-emerald-500/60" />Operational</span>
                 <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-amber-400/70" />Incident</span>
-                <span className="text-emerald-400 font-bold">99.97% uptime</span>
+                <span className="text-emerald-600 font-bold">99.97% uptime</span>
               </div>
               <span>Today</span>
             </div>
@@ -289,7 +289,7 @@ export default function NetworkStatusPage() {
                   <p className="text-xs text-neutral-500 mt-0.5">{date} &middot; Duration: {duration}</p>
                 </div>
                 {resolved && (
-                  <span className="shrink-0 flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                  <span className="shrink-0 flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     Resolved
                   </span>

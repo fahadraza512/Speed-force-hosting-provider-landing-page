@@ -29,7 +29,7 @@ export default function Hero() {
             architecture with sub-millisecond latency.
           </p>
           <div className="hero-zoom-in delay-400 flex flex-col sm:flex-row items-stretch sm:items-start gap-3">
-            <Link href="/get-started" className="bg-primary hover:bg-primary-container text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-sm sm:text-base transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(183,18,42,0.4)]">
+            <Link href="/contact-sales" className="bg-primary hover:bg-primary-container text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-sm sm:text-base transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(183,18,42,0.4)]">
               Accelerate Your Website
             </Link>
             <Link href="/network-status" className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-sm sm:text-base transition-all duration-300 hover:scale-105">
