@@ -3,8 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const features = ["100 GB NVMe Storage", "Free SSL + CDN + WAF", "Unlimited Websites", "Real-time Backups", "Dedicated Support", "Custom Server Config"];
-
 export default function ContactSalesPage() {
   return (
     <div className="min-h-screen bg-neutral-950 flex">
@@ -19,43 +17,21 @@ export default function ContactSalesPage() {
         </Link>
 
         <div className="relative z-10">
-          <p className="text-[10px] font-black tracking-[0.25em] text-primary uppercase mb-6">Scale Plan</p>
+          <h2 className="text-2xl font-black text-white tracking-tight mb-2">Let&apos;s talk.</h2>
+          <p className="text-neutral-400 text-sm leading-relaxed mb-8">Whether you need a dedicated server, a custom hosting setup, or just want to understand your options — our engineers are here to help.</p>
 
-          <div className="bg-white/4 border border-white/8 rounded-2xl p-6 mb-8">
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h3 className="text-white font-black text-lg tracking-tight">Scale Plan</h3>
-                <p className="text-neutral-500 text-xs mt-0.5">Enterprise-grade hosting</p>
-              </div>
-              <div className="text-right">
-                <p className="text-white font-black text-2xl tracking-tighter">$14.99</p>
-                <p className="text-neutral-500 text-xs">/month</p>
-              </div>
-            </div>
-            <div className="h-px bg-white/6 mb-4" />
-            <ul className="space-y-2.5">
-              {features.map((f) => (
-                <li key={f} className="flex items-center gap-2.5 text-xs text-neutral-400">
-                  <span className="material-symbols-outlined text-primary text-sm shrink-0">check_circle</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-4">
+          <div className="space-y-5">
             {[
-              { icon: "support_agent", title: "Dedicated account manager", desc: "A real engineer assigned to your account." },
-              { icon: "speed",         title: "Custom SLA",                 desc: "99.99% uptime guarantee with financial backing." },
-              { icon: "handshake",     title: "Volume discounts",           desc: "Special pricing for multi-server deployments." },
+              { icon: "support_agent", title: "Dedicated account manager", desc: "A real senior engineer assigned to your account from day one." },
+              { icon: "speed",         title: "Custom SLA",                 desc: "99.99% uptime guarantee with financial backing available." },
+              { icon: "handshake",     title: "Volume discounts",           desc: "Special pricing for multi-server and agency deployments." },
+              { icon: "timer",         title: "Response within 1 hour",     desc: "We get back to every enquiry within one business hour." },
             ].map(({ icon, title, desc }) => (
               <div key={title} className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-primary text-base">{icon}</span>
-                </div>
+                <span className="material-symbols-outlined text-primary text-xl shrink-0 mt-0.5">{icon}</span>
                 <div>
-                  <p className="text-white text-xs font-semibold">{title}</p>
-                  <p className="text-neutral-600 text-xs mt-0.5">{desc}</p>
+                  <p className="text-white text-sm font-semibold">{title}</p>
+                  <p className="text-neutral-500 text-xs mt-0.5 leading-relaxed">{desc}</p>
                 </div>
               </div>
             ))}

@@ -20,7 +20,7 @@ export default function Home() {
           <Features />
           <Stats />
           <Pricing />
-          <Footer />
+          <Footer showBanner />
         </Suspense>
       </div>
     </>

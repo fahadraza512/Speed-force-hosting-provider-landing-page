@@ -27,25 +27,27 @@ const socialIcons = [
 
 const badges = ["SOC 2 Type II", "ISO 27001", "GDPR Ready", "PCI DSS"];
 
-export default function Footer() {
+export default function Footer({ showBanner = false }: { showBanner?: boolean }) {
   return (
     <footer className="bg-neutral-950 text-neutral-400">
-      <div className="bg-primary/10 border-y border-primary/20">
-        <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-xl font-black text-white tracking-tight mb-1">Ready to accelerate?</h3>
-            <p className="text-sm text-neutral-400">30-day money back guarantee. Cancel anytime.</p>
-          </div>
-          <div className="flex gap-3">
-            <button className="bg-primary hover:bg-primary-container text-white px-6 py-3 rounded-full font-bold text-sm transition-all hover:scale-105 shadow-lg shadow-primary/20">
-              Get Started
-            </button>
-            <button className="border border-white/20 hover:border-white/40 text-white px-6 py-3 rounded-full font-bold text-sm transition-all hover:scale-105">
-              Talk to Sales
-            </button>
+      {showBanner && (
+        <div className="bg-primary/10 border-y border-primary/20">
+          <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-xl font-black text-white tracking-tight mb-1">Ready to accelerate?</h3>
+              <p className="text-sm text-neutral-400">30-day money back guarantee. Cancel anytime.</p>
+            </div>
+            <div className="flex gap-3">
+              <button className="bg-primary hover:bg-primary-container text-white px-6 py-3 rounded-full font-bold text-sm transition-all hover:scale-105 shadow-lg shadow-primary/20">
+                Get Started
+              </button>
+              <button className="border border-white/20 hover:border-white/40 text-white px-6 py-3 rounded-full font-bold text-sm transition-all hover:scale-105">
+                Talk to Sales
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-6 gap-12">
